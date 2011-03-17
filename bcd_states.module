@@ -1,3 +1,21 @@
 <?php
 
 include_once('bcd_states.features.inc');
+
+function bcd_states_nodeapi(&$node, $op, $a3, $a4) {
+  if ($op == 'view') {
+    if ($node->type == 'state' && arg(0) == 'node' && arg(1) == $node->nid) {
+      drupal_set_title(t("Baha'i Communities in @state", array('@state' => $node->title)));
+    }
+  }
+}
+
+function bcd_states_gmap($op, &$map) {
+  if ($op == 'pre_theme_map' && stripos($map['id'], 'state_') !== FALSE && arg(0) == 'node') {
+    if ($node = node_load(arg(1))) { // intentional assignment of $node
+      $map['latitude'] = $node->location['latitude'];
+      $map['longitude'] = $node->location['longitude'];
+      $map['zoom'] = $node->field_gmap_zoom[0]['value'] ? (int) $node->field_gmap_zoom[0]['value'] : $map['zoom'];
+    }
+  }
+}
