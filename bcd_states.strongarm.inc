@@ -123,12 +123,5 @@ function bcd_states_strongarm() {
   );
 
   $export['node_options_state'] = $strongarm;
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_state_pattern';
-  $strongarm->value = 'community/[location-province_name_0]';
-
-  $export['pathauto_node_state_pattern'] = $strongarm;
   return $export;
 }

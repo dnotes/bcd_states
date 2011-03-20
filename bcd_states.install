@@ -1,0 +1,12 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ *
+ */
+
+function bcd_states_install() {
+  variable_set('gmap_node_markers_state', 'small lgrey');
+  variable_set('pathauto_node_state_pattern', 'community/[location-province_name_0]');
+}
