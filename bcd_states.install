@@ -9,4 +9,13 @@
 function bcd_states_install() {
   variable_set('gmap_node_markers_state', 'small lgrey');
   variable_set('pathauto_node_state_pattern', 'community/[location-province_name_0]');
+  variable_set('content_extra_weights_state', array(
+    'title' => '-5',
+    'body_field' => '1',
+    'revision_information' => '3',
+    'menu' => '2',
+    'path' => '4',
+    'locations' => '-4',
+  ));
+
 }
